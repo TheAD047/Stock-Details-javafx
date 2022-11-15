@@ -1,5 +1,6 @@
 package com.example.assignment2gc200489790;
 
+import com.example.assignment2gc200489790.APIUtil.APIUtil;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
@@ -18,6 +19,8 @@ public class HelloApplication extends Application {
     }
 
     public static void main(String[] args) {
-        launch();
+        APIUtil.getStocks("IBM");
+
+        //launch();
     }
 }
