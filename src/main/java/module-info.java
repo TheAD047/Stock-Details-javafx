@@ -10,7 +10,7 @@ module com.example.assignment2gc200489790 {
     requires com.fasterxml.jackson.annotation;
 
     opens com.example.assignment2gc200489790 to javafx.fxml, com.google.gson;
-    //opens com.example.assignment2gc200489790.Controllers to javafx.fxml, javafx.base;
+    opens com.example.assignment2gc200489790.Controllers to javafx.fxml, javafx.base;
     opens com.example.assignment2gc200489790.Models to javafx.fxml, com.google.gson, com.fasterxml.jackson.databind, javafx.base;
 
     exports com.example.assignment2gc200489790;
