@@ -35,6 +35,6 @@ public class IndexController implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-        comboBoxForSymbols.getItems().add("IBM");
+        comboBoxForSymbols.getItems().addAll("IBM", "Dell");
     }
 }
