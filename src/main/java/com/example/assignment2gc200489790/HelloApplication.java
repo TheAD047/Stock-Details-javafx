@@ -19,7 +19,7 @@ public class HelloApplication extends Application {
     }
 
     public static void main(String[] args) {
-        //APIUtil.getStocks("IBM");
         launch();
+        //System.out.print(APIUtil.addSymbol("HP"));
     }
 }

@@ -1,6 +1,6 @@
 package com.example.assignment2gc200489790;
 
-public class Symbol {
+public class Setting {
     private static String symbol;
 
     public static String getSymbol() {
@@ -8,6 +8,6 @@ public class Symbol {
     }
 
     public static void setSymbol(String symbol) {
-        Symbol.symbol = symbol;
+        Setting.symbol = symbol;
     }
 }

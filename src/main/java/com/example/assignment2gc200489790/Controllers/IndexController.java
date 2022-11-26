@@ -1,6 +1,8 @@
 package com.example.assignment2gc200489790.Controllers;
 
-import com.example.assignment2gc200489790.Symbol;
+import com.example.assignment2gc200489790.APIUtil.APIUtil;
+import com.example.assignment2gc200489790.Models.Symbol;
+import com.example.assignment2gc200489790.Setting;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -9,7 +11,7 @@ import javafx.scene.control.ComboBox;
 import javafx.scene.control.Label;
 
 import java.net.URL;
-import java.util.ResourceBundle;
+import java.util.*;
 
 public class IndexController implements Initializable {
 
@@ -17,7 +19,7 @@ public class IndexController implements Initializable {
     private Button btnForStocks;
 
     @FXML
-    private ComboBox<String> comboBoxForSymbols;
+    private ComboBox<Symbol> comboBoxForSymbols;
 
     @FXML
     private Label labelForMsg;
@@ -28,13 +30,15 @@ public class IndexController implements Initializable {
             labelForMsg.setText("Please Select A Company...");
         }
         else {
-            Symbol.setSymbol(comboBoxForSymbols.getValue());
+            Setting.setSymbol(comboBoxForSymbols.getValue().toString());
             SceneController.changeScene(event, "stocks");
         }
     }
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-        comboBoxForSymbols.getItems().addAll("IBM", "Dell");
+        Symbol[] symbols = APIUtil.getSymbolsForComboBox();
+
+        comboBoxForSymbols.getItems().addAll(symbols);
     }
 }
