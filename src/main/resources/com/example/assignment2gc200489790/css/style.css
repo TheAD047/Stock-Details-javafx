@@ -27,6 +27,8 @@
 #lineChart{
     -fx-font-size: 16pt;
     -fx-text-fill: rgba(0, 0, 0, 0.4);
+    -fx-border-color: rgba(100, 50, 10, 1);
+    -fx-border-radius: 10pt;
 }
 
 #span{

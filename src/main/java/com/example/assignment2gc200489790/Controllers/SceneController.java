@@ -17,7 +17,12 @@ public class SceneController {
         Scene scene = new Scene(fxmlLoader.load());
 
         Stage stage = (Stage)((Node)event.getSource()).getScene().getWindow();
-        stage.setTitle(name);
+        if(name.equals("index")) {
+            stage.setTitle("Stomks");
+        }
+        else {
+            stage.setTitle(name);
+        }
         stage.setScene(scene);
         stage.show();
     }
