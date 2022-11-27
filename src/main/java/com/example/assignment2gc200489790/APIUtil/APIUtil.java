@@ -13,6 +13,7 @@ import java.net.http.HttpClient;
 import java.net.http.HttpRequest;
 import java.net.http.HttpResponse;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 import java.util.Map;
 import java.util.concurrent.atomic.AtomicInteger;
@@ -64,25 +65,29 @@ public class APIUtil {
             Gson gson = new Gson();
 
             if(file.exists()) {
-                List<Symbol> symbols = getSymbols();
+                Symbol[] symbols = getSymbolsForComboBox();
 
-                if(symbols.contains(new Symbol(symbolToAdd))) {
-                    symbols.add(new Symbol(symbolToAdd));
-
-                    System.out.println(gson.toJson(symbols, ArrayList.class));
-
-                    FileWriter fileWriter = new FileWriter(file);
-
-                    fileWriter.write(gson.toJson(symbols, ArrayList.class));
-
-                    fileWriter.close();
-
-                    return "Symbol added...";
-                }
-                else {
-                    return "Symbol already Exists...";
+                for (Symbol symbol : symbols) {
+                    if(symbol.getSymbol().equals(symbolToAdd)) {
+                        return "Symbol Already Exists...";
+                    }
                 }
 
+                Symbol[] newSymbols = new Symbol[symbols.length + 1];
+
+                for (int i = 0; i < symbols.length; i++) {
+                    newSymbols[i] = symbols[i];
+                }
+
+                newSymbols[symbols.length] = new Symbol(symbolToAdd);
+
+                FileWriter fileWriter = new FileWriter("symbols.json");
+
+                gson.toJson(Arrays.asList(newSymbols), fileWriter);
+
+                fileWriter.close();
+
+                return "Symbol Added...";
             }
             else {
                 List symbols = new ArrayList<>();
@@ -90,6 +95,8 @@ public class APIUtil {
                 FileWriter fileWriter = new FileWriter(file);
 
                 gson.toJson(symbols, fileWriter);
+
+                fileWriter.close();
 
                 return "Symbol cache created...";
             }

@@ -19,6 +19,9 @@ public class IndexController implements Initializable {
     private Button btnForStocks;
 
     @FXML
+    private Button btnToAddSymbol;
+
+    @FXML
     private ComboBox<Symbol> comboBoxForSymbols;
 
     @FXML
@@ -40,5 +43,10 @@ public class IndexController implements Initializable {
         Symbol[] symbols = APIUtil.getSymbolsForComboBox();
 
         comboBoxForSymbols.getItems().addAll(symbols);
+    }
+
+    @FXML
+    void goToAddSymbol(ActionEvent event) throws Exception {
+        SceneController.changeScene(event,"AddSymbol");
     }
 }

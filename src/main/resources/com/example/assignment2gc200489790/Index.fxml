@@ -30,13 +30,6 @@
                      </center>
                   </BorderPane>
                   <BorderPane>
-                     <center>
-                        <Label prefHeight="71.0" prefWidth="550.0" text="Welcome To Easy Stocks">
-                           <font>
-                              <Font name="Arial" size="48.0" />
-                           </font>
-                        </Label>
-                     </center>
                      <bottom>
                         <Label prefHeight="95.0" prefWidth="793.0" text="Making the stock info available for your convinience, so much so Jordan Belford will be proud" textAlignment="CENTER" BorderPane.alignment="CENTER">
                            <font>
@@ -44,6 +37,13 @@
                            </font>
                         </Label>
                      </bottom>
+                     <top>
+                        <Label prefHeight="71.0" prefWidth="550.0" text="Welcome To Easy Stocks" BorderPane.alignment="CENTER">
+                           <font>
+                              <Font name="Arial" size="48.0" />
+                           </font>
+                        </Label>
+                     </top>
                   </BorderPane>
                   <BorderPane GridPane.rowIndex="2">
                      <center>
@@ -84,7 +84,6 @@
               <columnConstraints>
                 <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
                   <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
               </columnConstraints>
               <rowConstraints>
                 <RowConstraints maxHeight="106.933349609375" minHeight="10.0" prefHeight="106.933349609375" vgrow="SOMETIMES" />
@@ -92,11 +91,24 @@
                 <RowConstraints maxHeight="23.99991455078125" minHeight="6.933266067504881" prefHeight="6.933266067504881" vgrow="SOMETIMES" />
               </rowConstraints>
                <children>
-                  <Button fx:id="btnForStocks" mnemonicParsing="false" onAction="#seeStocksForSymbol" prefHeight="69.0" prefWidth="427.0" text="See Stocks" GridPane.columnIndex="1">
-                     <font>
-                        <Font size="28.0" />
-                     </font>
-                  </Button>
+                  <BorderPane GridPane.columnIndex="1">
+                     <center>
+                        <Button fx:id="btnForStocks" mnemonicParsing="false" onAction="#seeStocksForSymbol" prefHeight="70.0" prefWidth="301.0" text="See Stocks">
+                           <font>
+                              <Font size="28.0" />
+                           </font>
+                        </Button>
+                     </center>
+                  </BorderPane>
+                  <BorderPane>
+                     <center>
+                        <Button fx:id="btnToAddSymbol" mnemonicParsing="false" onAction="#goToAddSymbol" prefHeight="70.0" prefWidth="248.0" text="Add A Company">
+                           <font>
+                              <Font size="28.0" />
+                           </font>
+                        </Button>
+                     </center>
+                  </BorderPane>
                </children>
             </GridPane>
          </bottom>
