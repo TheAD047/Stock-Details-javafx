@@ -1,3 +1,10 @@
+/**
+ * Name : Arin Dhiman
+ * Student no. : 200489790
+ * Date : 27 November 2022
+ * Description : This class maps the metadata part of the API response
+ */
+
 package com.example.assignment2gc200489790.Models;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
@@ -21,6 +28,9 @@ public class MetaData {
     @JsonProperty("6. Time Zone")
     private String timeZone;
 
+    /**
+     * overloaded constructor just in case
+     */
     public MetaData(String info, String symbol, String refreshedOn, String intervalTime, String outputSize, String timeZone) {
         this.info = info;
         this.symbol = symbol;
@@ -32,6 +42,9 @@ public class MetaData {
 
     public MetaData() {}
 
+    /**
+     * getter and setter method for each instance variable
+     */
     public String getInfo() {
         return info;
     }
@@ -80,6 +93,9 @@ public class MetaData {
         this.timeZone = timeZone;
     }
 
+    /**
+     * toString method to return a nice string representation of this object
+     */
     @Override
     public String toString() {
         return "MetaData{" +
